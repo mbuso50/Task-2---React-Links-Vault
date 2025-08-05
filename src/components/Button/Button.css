@@ -1,0 +1,19 @@
+.button {
+  padding: 0.75rem 1.5rem;
+  background-color: #471396; /* Purple */
+  color: #FFCC00; /* Yellow text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #B13BFF; /* Bright purple on hover */
+}
+
+.save-button {
+  margin-top: 1rem;
+  align-self: flex-end;
+}
