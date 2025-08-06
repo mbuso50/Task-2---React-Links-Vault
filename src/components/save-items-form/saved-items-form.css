@@ -1,11 +1,11 @@
 .saved-items-container {
   width: 100%;
-  background: rgba(59, 56, 160, 0.7); /* Semi-transparent purple */
+  background: rgba(59, 56, 160, 0.7); 
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--primary-blue);
-  backdrop-filter: blur(8px); /* Blur effect */
+  backdrop-filter: blur(8px); 
 }
 
 .saved-items-grid {

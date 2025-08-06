@@ -5,4 +5,5 @@ export interface LinkItem {
     description: string;
     tags: string[];
     createdAt: number;
+    favicon?: string;
 }

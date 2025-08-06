@@ -1,33 +1,36 @@
 import React from 'react';
 import './Button.css';
 
-interface ButtonProps {
+type ButtonProps = {
   text: string;
   onClick?: () => void;
   color?: string;
-  hoverColor?: string; // Add hoverColor to props
+  hoverColor?: string;
   className?: string;
   fullWidth?: boolean;
   icon?: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   text,
   onClick = () => { },
   color = '#471396',
-  hoverColor = '#B13BFF', // Default hover color
+  hoverColor = '#B13BFF',
   className = '',
   fullWidth = false,
   icon
-}) => {
+}: ButtonProps) => {
+  const buttonClasses = `button ${className} ${fullWidth ? 'full-width' : ''}`;
+  const buttonStyle = {
+    backgroundColor: color,
+    '--hover-color': hoverColor
+  } as React.CSSProperties;
+
   return (
     <button
-      className={`button ${className} ${fullWidth ? 'full-width' : ''}`}
+      className={buttonClasses}
       onClick={onClick}
-      style={{
-        backgroundColor: color,
-        '--hover-color': hoverColor // CSS variable for hover state
-      } as React.CSSProperties}
+      style={buttonStyle}
     >
       {icon && <span className="button-icon">{icon}</span>}
       {text}

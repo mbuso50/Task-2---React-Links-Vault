@@ -11,18 +11,26 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [editingLink, setEditingLink] = useState<LinkItem | null>(null);
 
-  const handleSave = (link: Omit<LinkItem, 'id' | 'createdAt'>) => {
+  const handleSave = (newLinkData: { title: string, url: string, description: string, tags: string[] }) => {
     if (editingLink) {
-      setLinks(links.map(l =>
-        l.id === editingLink.id ? { ...l, ...link } : l
-      ));
+      const updatedLinks = links.map((existingLink) => {
+        if (existingLink.id === editingLink.id) {
+          return {
+            ...existingLink,
+            ...newLinkData
+          };
+        }
+        return existingLink;
+      });
+      setLinks(updatedLinks);
       setEditingLink(null);
     } else {
-      setLinks([...links, {
-        ...link,
+      const newLink = {
+        ...newLinkData,
         id: Date.now().toString(),
         createdAt: Date.now()
-      }]);
+      };
+      setLinks([...links, newLink]);
     }
   };
 
@@ -42,7 +50,7 @@ const App: React.FC = () => {
       <header className="app-header">
         <div className="header-content">
           <h1>
-            <span className="logo-icon">🔗</span>
+            <span className="logo-icon">+_+</span>
             React Links Vault
           </h1>
           <SearchBar
@@ -70,9 +78,7 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      <div className="floating-action-btn" onClick={() => setEditingLink(null)}>
-        +
-      </div>
+
     </div>
   );
 };

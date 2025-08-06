@@ -27,7 +27,7 @@ const SavedItemsForm: React.FC<SavedItemsFormProps> = ({ links, onEdit, onDelete
                         <div className="saved-item-content">
                             <div className="saved-item-header">
                                 <div className="saved-item-icon" style={{ border: `2px solid var(--yellow)` }}>
-                                    <img src={link.favicon || 'https://placehold.co/40x40'} alt={link.title} />
+                                    <img src={link.favicon || 'my-logo'} alt={link.title} />
                                 </div>
                                 <div className="saved-item-title">{link.title}</div>
                             </div>
